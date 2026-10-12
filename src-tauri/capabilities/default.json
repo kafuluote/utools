@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "main-window",
+  "description": "Allow local window drag events; decoding uses Rust commands.",
+  "windows": ["main"],
+  "permissions": ["core:default"]
+}

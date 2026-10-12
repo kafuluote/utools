@@ -1,0 +1,63 @@
+.json-shell { --json-bg: #fff; --json-text: #384a43; --json-muted: #96a29c; --json-border: #e9eeeb; --json-hover: #eef9f4; padding: 7px 12px 12px; color: var(--json-text); }
+.json-workspace { display: grid; grid-template-columns: minmax(0, 42fr) minmax(0, 58fr); height: calc(100vh - 103px); min-height: 320px; background: var(--json-bg); border-radius: 4px; overflow: hidden; }
+.json-input-pane { min-width: 0; display: flex; flex-direction: column; border-right: 6px solid var(--json-border); }
+.json-input { flex: 1; min-height: 0; width: 100%; resize: none; padding: 15px 16px; background: var(--json-bg); color: var(--json-text); font: 13px/1.8 Consolas, "Microsoft YaHei", monospace; border: 0; outline: 0; tab-size: 2; }
+.json-input::placeholder { color: #b5bdb7; }
+.json-input:focus { box-shadow: inset 0 0 0 1px #00bd8730; }
+.json-input-status, .json-output-status { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 5px 12px; font-size: 10px; color: var(--json-muted); padding: 8px 12px; border-top: 1px solid var(--json-border); }
+.json-output-pane { min-width: 0; display: flex; flex-direction: column; }
+.json-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; padding: 7px 10px; min-height: 43px; }
+.json-toolbar-group { display: flex; align-items: center; flex-wrap: wrap; gap: 1px; }
+.json-icon { display: inline-flex; align-items: center; justify-content: center; border: 0; background: transparent; color: #829184; padding: 6px; border-radius: 3px; }
+.json-icon:hover, .json-icon[aria-pressed="true"] { color: #00b987; background: var(--json-hover); }
+.json-icon:disabled { cursor: default; opacity: .35; }
+.json-escape { display: flex; align-items: center; gap: 5px; white-space: nowrap; font-size: 11px; color: #84958b; cursor: pointer; }
+.json-escape input { margin: 0; accent-color: #00c896; width: 14px; height: 14px; }
+.json-toolbar-end { display: flex; align-items: center; gap: 5px; margin-left: auto; }
+.json-sample { color: #fff; background: #00c896; border: 1px solid #00c896; border-radius: 4px; padding: 5px 9px; font-size: 11px; white-space: nowrap; }
+.json-sample:hover { background: #00b487; }
+.json-result-status { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 4px 13px 8px; color: var(--json-muted); font-size: 10px; }
+.json-valid, .json-invalid { display: inline-flex; align-items: center; gap: 4px; }
+.json-valid { color: #00af7e; }
+.json-invalid { color: #d86657; }
+.json-parse-error { margin: 0 12px 8px; padding: 9px 10px; background: #fff4f1; color: #c34d40; border: 1px solid #f4d8d1; border-radius: 3px; font-size: 12px; line-height: 1.6; display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; }
+.json-parse-error button { color: #c34d40; border: 0; background: transparent; text-decoration: underline; font-size: 11px; padding: 0; }
+.json-code { flex: 1; min-height: 0; overflow: auto; padding: 3px 10px 18px 2px; font: 13px/1.9 Consolas, "Microsoft YaHei", monospace; outline-offset: -2px; }
+.json-line { display: flex; min-width: max-content; align-items: flex-start; min-height: 25px; }
+.json-line-number { min-width: 40px; padding-right: 8px; text-align: right; font-size: 11px; color: var(--json-muted); user-select: none; flex-shrink: 0; }
+.json-line-body { white-space: pre; display: block; }
+.json-fold-slot { display: inline-flex; width: 18px; vertical-align: middle; }
+.json-fold-slot button { display: flex; align-items: center; border: 0; background: transparent; color: var(--json-muted); padding: 0; }
+.json-key { color: #9366ad; }
+.json-value { font: inherit; padding: 0; margin: 0; border: 0; background: transparent; white-space: pre; border-radius: 2px; text-align: left; }
+.json-value:hover { background: var(--json-hover); }
+.json-string { color: #329a62; }
+.json-number { color: #c37835; }
+.json-boolean { color: #387dc4; }
+.json-null { color: #929ba8; }
+.json-fold-summary { font: inherit; color: var(--json-muted); background: var(--json-hover); border: 0; padding: 0 6px; margin: 0 4px; border-radius: 3px; }
+.json-edit { display: inline-flex; flex-wrap: wrap; gap: 3px; align-items: center; white-space: normal; }
+.json-edit input { width: 230px; max-width: 55vw; font: inherit; color: var(--json-text); background: var(--json-bg); border: 1px solid #00bd8d; border-radius: 2px; padding: 1px 4px; }
+.json-edit button { display: inline-flex; align-items: center; color: #00ad7b; background: transparent; border: 0; padding: 3px; }
+.json-edit-error { display: block; flex-basis: 100%; color: #d86657; font: 11px/1.6 "Microsoft YaHei", sans-serif; }
+.json-truncated { margin: 12px; font: 11px/1.7 "Microsoft YaHei", sans-serif; color: var(--json-muted); }
+.json-notice { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 12px; align-items: center; width: max-content; max-width: calc(100vw - 32px); padding: 11px 14px; border: 1px solid var(--json-border); background: var(--json-bg); color: var(--json-text); border-radius: 7px; box-shadow: 0 4px 22px #25372d20; z-index: 12; font-size: 12px; overflow-wrap: anywhere; }
+.json-notice button { display: flex; padding: 0; background: transparent; border: 0; color: var(--json-muted); }
+.json-dark { --json-bg: #1e2926; --json-text: #d3ded7; --json-muted: #7e9288; --json-border: #34423b; --json-hover: #2a4035; background: #17211d; }
+.json-dark .json-key { color: #c399dd; }
+.json-dark .json-string { color: #83c69a; }
+.json-dark .json-number { color: #d5aa6f; }
+.json-dark .json-boolean { color: #80b9eb; }
+.json-dark .json-parse-error { background: #3b2926; border-color: #623b34; color: #f19c8e; }
+.json-expanded { position: fixed; inset: 0; z-index: 10; background: var(--json-bg); }
+.json-expanded .json-workspace { height: calc(100vh - 19px); }
+@media (max-width: 650px) {
+  .json-shell { padding: 7px 8px 8px; }
+  .json-workspace { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(110px, 35fr) minmax(215px, 65fr); height: calc(100vh - 99px); min-height: 330px; }
+  .json-input-pane { border-right: 0; border-bottom: 5px solid var(--json-border); }
+  .json-input { padding: 10px 12px; }
+  .json-toolbar { padding: 5px 8px; gap: 3px 6px; }
+  .json-icon { padding: 5px; }
+  .json-expanded .json-workspace { height: calc(100vh - 15px); }
+  .tool-caption { display: none; }
+}

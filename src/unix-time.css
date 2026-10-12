@@ -1,0 +1,65 @@
+.unix-shell { margin: 7px 12px 12px; padding: 14px 16px 20px; min-height: calc(100vh - 103px); background: #fff; border-radius: 4px; color: #788574; }
+.unix-heading { display: flex; align-items: center; gap: 9px; color: #64715d; margin-bottom: 36px; }
+.unix-heading h2 { margin: 0; font-size: 17px; font-weight: 600; }
+.unix-label { display: block; font-size: 12px; color: #798674; margin-bottom: 4px; line-height: 1.6; }
+.unix-input-row { display: flex; min-width: 0; height: 38px; }
+.unix-input-row > input { flex: 1; min-width: 0; width: 100%; padding: 0 13px; font-size: 14px; color: #75836f; border: 1px solid #d9ded7; border-right: 0; border-radius: 5px 0 0 5px; outline: none; background: #fff; font-variant-numeric: tabular-nums; }
+.unix-input-row > input::placeholder { color: #b8c0b3; }
+.unix-input-row > input:focus, .unix-date-field:focus-within { box-shadow: inset 0 0 0 1px #00c894; }
+.unix-input-row > input[aria-invalid="true"] { border-color: #e6a193; }
+.unix-current-row { height: 48px; }
+.unix-current-row > input { font-size: 18px; }
+.unix-copy { flex: 0 0 46px; display: grid; place-items: center; color: #75846c; background: #fff; border: 1px solid #d9ded7; border-radius: 0 5px 5px 0; padding: 0; }
+.unix-current-row .unix-copy { flex-basis: 59px; }
+.unix-copy:hover { color: #00bd8b; background: #f5fffa; }
+.unix-copy:disabled { opacity: .4; cursor: default; }
+.unix-units { display: flex; align-items: center; gap: 13px; margin-top: 15px; font-size: 14px; }
+.unix-units label { display: inline-flex; align-items: center; gap: 4px; cursor: pointer; }
+.unix-units input { accent-color: #00c99a; margin: 0; width: 17px; height: 17px; }
+.unix-conversion { margin-top: 36px; }
+.unix-convert { flex: 0 0 72px; border: 1px solid #00cd9c; border-radius: 0 5px 5px 0; background: #fff; color: #00bd8e; font-size: 14px; padding: 0 10px; }
+.unix-convert:hover { background: #00c99a; color: #fff; }
+.unix-result { margin-top: 8px; }
+.unix-parts-section { margin-top: 17px; }
+.unix-date-row { display: flex; align-items: stretch; min-width: 0; height: 38px; }
+.unix-date-field { display: flex; flex: 1; min-width: 0; border: 1px solid #d9ded7; border-right: 0; }
+.unix-date-field:first-child { flex: 1.3; border-radius: 5px 0 0 5px; overflow: hidden; }
+.unix-date-field input { width: 100%; min-width: 0; border: 0; outline: 0; background: #fff; color: #75836f; font-size: 14px; padding: 0 10px; font-variant-numeric: tabular-nums; }
+.unix-date-field span { display: grid; place-items: center; flex: 0 0 30px; font-size: 14px; border-left: 1px solid #d9ded7; }
+.unix-date-field input[aria-invalid="true"] { background: #fffaf8; }
+.unix-quick-section { margin-top: 43px; }
+.unix-error { margin: 6px 0 0; color: #c95849; font-size: 12px; line-height: 1.6; }
+.unix-footnote { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 5px 12px; margin-top: 17px; font-size: 10px; color: #9fa899; line-height: 1.7; }
+.unix-notice { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: max-content; max-width: calc(100vw - 32px); display: flex; gap: 12px; align-items: center; padding: 11px 14px; border: 1px solid #e4ebe1; background: #fff; color: #64715d; border-radius: 7px; box-shadow: 0 4px 22px #25372d20; z-index: 12; font-size: 12px; overflow-wrap: anywhere; }
+.unix-notice button { display: flex; padding: 0; border: 0; background: transparent; color: #9ca693; }
+@media (max-width: 650px) {
+  .unix-shell { margin: 7px 8px 8px; padding: 12px 12px 16px; }
+  .unix-heading { margin-bottom: 25px; }
+  .unix-conversion { margin-top: 27px; }
+  .unix-parts-section { margin-top: 17px; }
+  .unix-quick-section { margin-top: 30px; }
+  .unix-date-field input { padding: 0 6px; font-size: 12px; }
+  .unix-date-field span { flex-basis: 20px; font-size: 12px; }
+  .unix-date-row .unix-convert { flex-basis: 56px; padding: 0 7px; }
+}
+@media (max-width: 450px) {
+  .unix-date-row { flex-wrap: wrap; height: auto; gap: 6px 0; }
+  .unix-date-field, .unix-date-field:first-child { flex: 0 0 33.333%; height: 38px; border: 1px solid #d9ded7; border-radius: 0; }
+  .unix-date-row .unix-convert { flex-basis: 100%; height: 34px; border-radius: 5px; }
+}
+@media (max-height: 700px) {
+  .unix-shell { padding-top: 12px; padding-bottom: 14px; }
+  .unix-heading { margin-bottom: 14px; }
+  .unix-label { margin-bottom: 3px; line-height: 1.45; }
+  .unix-input-row, .unix-date-row { height: 34px; }
+  .unix-current-row { height: 42px; }
+  .unix-units { margin-top: 10px; font-size: 13px; }
+  .unix-conversion { margin-top: 22px; }
+  .unix-parts-section { margin-top: 14px; }
+  .unix-quick-section { margin-top: 24px; }
+  .unix-result { margin-top: 6px; }
+  .unix-footnote { margin-top: 12px; }
+}
+@media (max-width: 450px) and (max-height: 700px) {
+  .unix-date-row { height: auto; }
+}

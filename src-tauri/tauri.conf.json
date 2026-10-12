@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "实用工具",
+  "version": "0.5.0",
+  "identifier": "com.exchangetools.converter",
+  "build": { "beforeDevCommand": "npm run dev", "devUrl": "http://localhost:1420", "beforeBuildCommand": "npm run build", "frontendDist": "../dist" },
+  "app": {
+    "windows": [{ "title": "实用工具 · 汇率 / 二维码 / JSON / Unix 时间", "width": 820, "height": 610, "minWidth": 520, "minHeight": 400, "resizable": true }],
+    "security": { "csp": "default-src 'self'; connect-src ipc: http://ipc.localhost https://open.er-api.com https://v6.exchangerate-api.com https://data.fixer.io https://api.currencyapi.com; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'" }
+  },
+  "bundle": { "active": true, "targets": ["nsis"], "icon": ["icons/icon.ico", "icons/icon.png"], "windows": { "nsis": { "languages": ["SimpChinese", "English"], "displayLanguageSelector": false } } }
+}
