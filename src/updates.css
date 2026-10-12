@@ -1,7 +1,7 @@
-.update-toolbar { display: flex; align-items: center; justify-content: flex-end; gap: 12px; padding: 5px 20px; background: #fff; border-bottom: 1px solid #e9ebee; font-size: 11px; color: #8a98a5; flex-wrap: wrap; }
-.update-toolbar > button { display: inline-flex; align-items: center; gap: 5px; padding: 4px 0; color: #5d7185; background: transparent; border: 0; font-size: 11px; }
+.update-toolbar { display: flex; align-items: center; justify-content: flex-end; gap: 12px; min-height: 31px; padding: 4px 20px; background: #fff; border-bottom: 1px solid #e9ebee; font-size: 11px; line-height: 13px; color: #8a98a5; flex-wrap: wrap; }
+.update-toolbar > button { display: inline-flex; align-items: center; gap: 5px; padding: 4px 0; color: #5d7185; background: transparent; border: 0; font-size: 11px; line-height: 13px; }
 .update-toolbar > button:hover, .update-toolbar > .update-available { color: #00a442; }
-.update-notice { flex-basis: 100%; display: flex; justify-content: flex-end; align-items: center; gap: 8px; color: #425569; overflow-wrap: anywhere; }
+.update-notice { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 15; display: flex; align-items: center; gap: 8px; width: max-content; max-width: calc(100vw - 32px); padding: 11px 13px; background: #fff; border: 1px solid #e7ece8; border-radius: 8px; box-shadow: 0 4px 22px #25372d20; color: #425569; overflow-wrap: anywhere; }
 .update-notice button { display: flex; border: 0; background: transparent; color: #8a98a5; }
 .update-backdrop { z-index: 20; }
 .update-modal { width: min(100%, 500px); }
