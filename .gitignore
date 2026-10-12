@@ -10,6 +10,9 @@ coverage/
 # Tauri-generated schemas
 src-tauri/gen/
 
+# Local-only GitHub release publisher (never commit release credentials or helper)
+scripts/publish-release.ps1
+
 # Local configuration and temporary files (keep example configuration)
 .env
 .env.*
