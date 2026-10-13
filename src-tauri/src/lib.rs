@@ -1,4 +1,5 @@
 mod qr;
+mod qr_generate;
 mod updates;
 
 use std::path::Path;
@@ -123,6 +124,9 @@ pub fn run() {
             decode_qr_clipboard,
             copy_qr_text,
             save_qr_text,
+            generate_qr,
+            save_generated_qr,
+            copy_generated_qr,
             copy_json_text,
             save_json_text,
             check_app_update,
@@ -130,6 +134,58 @@ pub fn run() {
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
+}
+
+#[tauri::command]
+async fn generate_qr(
+    text: String,
+    size: u32,
+    correction: String,
+) -> Result<qr_generate::GeneratedQr, String> {
+    work(move || qr_generate::generate(&text, size, &correction)).await
+}
+
+#[tauri::command]
+async fn save_generated_qr(
+    window: tauri::WebviewWindow,
+    text: String,
+    size: u32,
+    correction: String,
+) -> Result<Option<String>, String> {
+    work(move || {
+        let bytes = qr_generate::png(&text, size, &correction)?;
+        let path = rfd::FileDialog::new()
+            .set_parent(&window)
+            .set_title("保存二维码图片")
+            .set_file_name("二维码.png")
+            .add_filter("PNG 图片", &["png"])
+            .save_file();
+        if let Some(path) = path {
+            std::fs::write(&path, bytes).map_err(|e| format!("保存二维码失败：{e}"))?;
+            Ok(Some(path.to_string_lossy().into_owned()))
+        } else {
+            Ok(None)
+        }
+    })
+    .await
+}
+
+#[tauri::command]
+async fn copy_generated_qr(text: String, size: u32, correction: String) -> Result<(), String> {
+    work(move || {
+        let rgba =
+            image::DynamicImage::ImageLuma8(qr_generate::render(&text, size, &correction)?.0)
+                .to_rgba8();
+        arboard::Clipboard::new()
+            .map_err(|e| format!("无法访问剪贴板：{e}"))?
+            .set_image(arboard::ImageData {
+                width: rgba.width() as usize,
+                height: rgba.height() as usize,
+                bytes: std::borrow::Cow::Owned(rgba.into_raw()),
+            })
+            .map_err(|e| format!("复制二维码图片失败：{e}"))
+    })
+    .await
 }
 
 #[tauri::command]

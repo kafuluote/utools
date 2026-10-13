@@ -4,6 +4,7 @@ import { ArrowLeftRight, ChevronDown, RefreshCw, Settings, X } from 'lucide-reac
 import { convertAmount, getRate, isValidAmount, type Side } from './conversion';
 import './styles.css';
 import { QrDecoder } from './QrDecoder';
+import { QrGenerator } from './QrGenerator';
 import { JsonParser } from './JsonParser';
 import { UnixTimeConverter } from './UnixTimeConverter';
 import { UpdateChecker } from './UpdateChecker';
@@ -169,8 +170,8 @@ function Flag({ code }: { code: string }) {
   return <span className="flag fallback-flag" aria-hidden="true">{code.slice(0, 2)}</span>;
 }
 
-type ToolTab = 'exchange' | 'qr' | 'json' | 'unix';
-const toolTabs: ToolTab[] = ['exchange', 'qr', 'json', 'unix'];
+type ToolTab = 'exchange' | 'qr' | 'qr-generate' | 'json' | 'unix';
+const toolTabs: ToolTab[] = ['exchange', 'qr', 'qr-generate', 'json', 'unix'];
 const lastTabKey = 'exchangetools.lastTab';
 
 function loadLastTab(): ToolTab {
@@ -197,6 +198,7 @@ function ToolsApp() {
     }}>
       <button id="tab-exchange" role="tab" aria-controls="panel-exchange" aria-selected={tab === 'exchange'} tabIndex={tab === 'exchange' ? 0 : -1} onClick={() => selectTab('exchange')}>汇率换算</button>
       <button id="tab-qr" role="tab" aria-controls="panel-qr" aria-selected={tab === 'qr'} tabIndex={tab === 'qr' ? 0 : -1} onClick={() => selectTab('qr')}>本地二维码</button>
+      <button id="tab-qr-generate" role="tab" aria-controls="panel-qr-generate" aria-selected={tab === 'qr-generate'} tabIndex={tab === 'qr-generate' ? 0 : -1} onClick={() => selectTab('qr-generate')}>二维码生成</button>
       <button id="tab-json" role="tab" aria-controls="panel-json" aria-selected={tab === 'json'} tabIndex={tab === 'json' ? 0 : -1} onClick={() => selectTab('json')}>JSON 解析器</button>
       <button id="tab-unix" role="tab" aria-controls="panel-unix" aria-selected={tab === 'unix'} tabIndex={tab === 'unix' ? 0 : -1} onClick={() => selectTab('unix')}>Unix 时间转换</button>
       <span className="tool-caption">实用工具</span>
@@ -204,6 +206,7 @@ function ToolsApp() {
     <UpdateChecker />
     <section id="panel-exchange" role="tabpanel" aria-labelledby="tab-exchange" hidden={tab !== 'exchange'}><App /></section>
     <section id="panel-qr" role="tabpanel" aria-labelledby="tab-qr" hidden={tab !== 'qr'}><QrDecoder active={tab === 'qr'} /></section>
+    <section id="panel-qr-generate" role="tabpanel" aria-labelledby="tab-qr-generate" hidden={tab !== 'qr-generate'}><QrGenerator active={tab === 'qr-generate'} /></section>
     <section id="panel-json" role="tabpanel" aria-labelledby="tab-json" hidden={tab !== 'json'}><JsonParser active={tab === 'json'} /></section>
     <section id="panel-unix" role="tabpanel" aria-labelledby="tab-unix" hidden={tab !== 'unix'}><UnixTimeConverter active={tab === 'unix'} /></section>
   </div>;
